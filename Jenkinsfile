@@ -9,3 +9,18 @@ pipeline {
         }
     }
 }
+
+
+pipeline {
+    agent any
+    stages {
+        stage('Collect Inputs') {
+            steps {
+                script {
+                    def inputs = getUserInputs()
+                    echo "App: ${inputs.APP_NAME}, Env: ${inputs.ENVIRONMENT}, Version: ${inputs.VERSION}"
+                }
+            }
+        }
+    }
+}
