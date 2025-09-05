@@ -4,22 +4,7 @@ pipeline {
     stages {
         stage('Hello'){
             steps{
-                helloWorld()
-            }
-        }
-        stage('Hello2'){
-            steps{
-                helloWorld()
-            }
-        }
-        stage('Docker'){
-            steps{
-                sh 'docker ps'
-            }
-        }
-        stage('Docker3'){
-            steps{
-                sh 'docker ps'
+                deployApp(app: 'order-service', env: 'staging', version: '1.2.3')
             }
         }
     }
